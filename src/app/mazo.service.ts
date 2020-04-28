@@ -12,16 +12,18 @@ export class MazoService {
   constructor() {
 
    }
-   createMazo(cantCartas)
+   createMazo(cantCartas = 25)
    {
-     this.mazo = take(shuffle(biblioteca),25);
+     this.mazo = take(shuffle(biblioteca),cantCartas);
    }
 
    getMazo() {
      return this.mazo;
    }
 
+   
+
    getProximaCarta(){}
 
-   
+
 }
