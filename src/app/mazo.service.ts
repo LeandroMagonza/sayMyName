@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { Carta } from './models/carta';
 import { biblioteca } from './biblioteca';
 import { shuffle,take } from 'lodash';
@@ -7,23 +7,24 @@ import { shuffle,take } from 'lodash';
   providedIn: 'root'
 })
 export class MazoService {
-  mazo: Carta[];
+  static getMazo() {
+    throw new Error("Method not implemented.");
+  }
+  @Output() mazo: Carta[];
 
-  constructor() {
-
-   }
-   createMazo(cantCartas = 25)
-   {
-     this.mazo = take(shuffle(biblioteca),cantCartas);
-   }
-
-   getMazo() {
-     return this.mazo;
-   }
-
-   
-
-   getProximaCarta(){}
+  constructor()
+  {
+    this.createMazo();
+  }
+  createMazo(cantCartas = 5)
+  {
+    this.mazo = take(shuffle(biblioteca),cantCartas);
+    console.log(this.mazo);
+  }
+  getMazo() {
+    return this.mazo;
+  }
+  getProximaCarta(){}
 
 
 }

@@ -6,7 +6,6 @@ import { HeaderComponent } from './header/header.component';
 import { TimerComponent } from './header/timer/timer.component';
 import { InformacionMazoComponent } from './header/informacion-mazo/informacion-mazo.component';
 import { JugadorActualComponent } from './header/jugador-actual/jugador-actual.component';
-import { PuntajeComponent } from './puntaje/puntaje.component';
 import { CartaActualComponent } from './carta-actual/carta-actual.component';
 import { AccionesComponent } from './acciones/acciones.component';
 import { PuntajeEquipoComponent } from './header/puntaje-equipo/puntaje-equipo.component';
@@ -18,7 +17,6 @@ import { PuntajeEquipoComponent } from './header/puntaje-equipo/puntaje-equipo.c
     TimerComponent,
     InformacionMazoComponent,
     JugadorActualComponent,
-    PuntajeComponent,
     CartaActualComponent,
     AccionesComponent,
     PuntajeEquipoComponent

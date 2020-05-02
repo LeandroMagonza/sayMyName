@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MazoService } from "../mazo.service";
 
 @Component({
   selector: 'app-carta-actual',
@@ -10,6 +11,8 @@ export class CartaActualComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
+
   }
 
 }
