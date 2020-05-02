@@ -9,6 +9,7 @@ import { JugadorActualComponent } from './header/jugador-actual/jugador-actual.c
 import { CartaActualComponent } from './carta-actual/carta-actual.component';
 import { AccionesComponent } from './acciones/acciones.component';
 import { PuntajeEquipoComponent } from './header/puntaje-equipo/puntaje-equipo.component';
+import { MazoService } from './mazo.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { PuntajeEquipoComponent } from './header/puntaje-equipo/puntaje-equipo.c
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [MazoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
