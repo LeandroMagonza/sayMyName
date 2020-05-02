@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-timer',
@@ -6,10 +7,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit {
-
+  @Output() timerUp = new EventEmitter<boolean>();
+  timerInterval;
+  timer:number = 0;
+  maxTimer: number=5;
   constructor() { }
 
   ngOnInit(): void {
+    this.onStartTurn();
+  }
+
+  onStartTurn()
+  {
+    this.timerInterval= setInterval(() =>
+    {
+      if (this.timer==this.maxTimer)
+      {
+        this.timer =0;
+        this.timerUp.emit(true);
+      }
+      else
+      {
+        this.timer++;
+        this.timerUp.emit(false);
+      }
+
+    },1000);
   }
 
 }
