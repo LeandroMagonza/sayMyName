@@ -1,5 +1,14 @@
 div {
   background-color: lightgreen;
   text-align: center;
-  font-size: 4rem;
 }
+.palabraSecreta
+{
+  font-size: 6vw
+}
+.palabraProhibida
+{
+  font-size: 4vw
+}
+
+

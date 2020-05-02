@@ -9,6 +9,7 @@ import { JugadorActualComponent } from './header/jugador-actual/jugador-actual.c
 import { PuntajeComponent } from './puntaje/puntaje.component';
 import { CartaActualComponent } from './carta-actual/carta-actual.component';
 import { AccionesComponent } from './acciones/acciones.component';
+import { PuntajeEquipoComponent } from './header/puntaje-equipo/puntaje-equipo.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AccionesComponent } from './acciones/acciones.component';
     JugadorActualComponent,
     PuntajeComponent,
     CartaActualComponent,
-    AccionesComponent
+    AccionesComponent,
+    PuntajeEquipoComponent
   ],
   imports: [
     BrowserModule
