@@ -10,7 +10,7 @@ import { Carta } from '../models/carta';
 export class HeaderComponent implements OnInit {
   mazo: Carta[];
   constructor(private mazoService: MazoService ) {
-    this.mazo = mazoService.getMazo();
+    this.mazo = mazoService.mazoEnJuego;
   }
 
   ngOnInit(): void {

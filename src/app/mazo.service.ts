@@ -1,5 +1,5 @@
-import { Injectable, Output } from '@angular/core';
-import { Carta } from './models/carta';
+import { Injectable } from '@angular/core';
+import { Carta, EstadoCarta } from './models/carta';
 import { biblioteca } from './biblioteca';
 import { shuffle,take } from 'lodash';
 
@@ -10,7 +10,7 @@ export class MazoService {
   static getMazo() {
     throw new Error("Method not implemented.");
   }
-  @Output() mazo: Carta[];
+  mazo: Carta[];
 
   constructor()
   {
@@ -19,12 +19,33 @@ export class MazoService {
   createMazo(cantCartas = 5)
   {
     this.mazo = take(shuffle(biblioteca),cantCartas);
-    console.log(this.mazo);
+    // console.log(this.mazo);
   }
-  getMazo() {
+  getMazoCompleto() {
     return this.mazo;
   }
-  getProximaCarta(){}
+  get mazoEnJuego() {
+    return this.mazo.filter(carta=>carta.estado == EstadoCarta.MAZO);
+  }
+  get proximaCarta()
+  {
+    return this.mazoEnJuego[0];
+  }
+
+  updateCarta(id: number,resolucion: "incorrecta"|"correcta")
+  {
+    let cartaActualizar = this.mazo.find(carta=>carta.id == id);
+    switch (resolucion) {
+      case "correcta":
+        cartaActualizar.estado = EstadoCarta.JUGADOR;
+        break;
+      case "incorrecta":
+        cartaActualizar.estado = EstadoCarta.DESCARTE;
+        break;
+
+        }
+    // console.log(this.mazo);
+  }
 
 
 }

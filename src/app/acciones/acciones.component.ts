@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-acciones',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./acciones.component.css']
 })
 export class AccionesComponent implements OnInit {
-
+  @Output() actualizarCarta = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onBotonPresionado(resolucion)
+  {
+    this.actualizarCarta.emit(resolucion);
+  }
 }

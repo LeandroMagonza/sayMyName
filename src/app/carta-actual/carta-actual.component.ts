@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MazoService } from "../mazo.service";
+import { Carta } from '../models/carta';
 
 @Component({
   selector: 'app-carta-actual',
@@ -7,11 +8,11 @@ import { MazoService } from "../mazo.service";
   styleUrls: ['./carta-actual.component.css']
 })
 export class CartaActualComponent implements OnInit {
-
-  constructor() { }
+  @Input() cartaActual: Carta;
+  constructor(private mazoService: MazoService) { }
 
   ngOnInit(): void {
-    
+
 
   }
 

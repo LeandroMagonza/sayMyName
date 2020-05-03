@@ -1,4 +1,4 @@
-import { Carta } from './models/carta';
+import { Carta, EstadoCarta } from './models/carta';
 
 export const biblioteca: Carta[] = [
   {
@@ -6,34 +6,34 @@ export const biblioteca: Carta[] = [
   palabraSecreta: "casa",
   palabraProhibida: "vivir",
   palabraTipo: "lugar",
-  estado: true
+  estado: EstadoCarta.MAZO
   },
   {
   id: 2,
   palabraSecreta: "queso",
   palabraProhibida: "leche",
   palabraTipo: "comida",
-  estado: true
+  estado: EstadoCarta.MAZO
   },
   {
   id: 3,
   palabraSecreta: "budismo",
   palabraProhibida: "monje",
   palabraTipo: "religión",
-  estado: true
+  estado: EstadoCarta.MAZO
   },
   {
   id: 4,
   palabraSecreta: "motocicleta",
   palabraProhibida: "dos",
   palabraTipo: "vehiculo",
-  estado: true
+  estado: EstadoCarta.MAZO
   },
   {
   id: 5,
   palabraSecreta: "rusia",
   palabraProhibida: "comunismo",
   palabraTipo: "pais",
-  estado: true
+  estado: EstadoCarta.MAZO
   }
 ];

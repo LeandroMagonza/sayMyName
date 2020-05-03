@@ -24,12 +24,11 @@ export class TimerComponent implements OnInit {
       if (this.timer==this.maxTimer)
       {
         this.timer =0;
-        this.timerUp.emit(true);
+        this.timerUp.emit();
       }
       else
       {
         this.timer++;
-        this.timerUp.emit(false);
       }
 
     },1000);

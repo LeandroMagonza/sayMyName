@@ -1,5 +1,5 @@
 <div class="container">
   <app-header></app-header>
-  <app-carta-actual></app-carta-actual>
-  <app-acciones></app-acciones>
+  <app-carta-actual [cartaActual] = "cartaActual" ></app-carta-actual>
+  <app-acciones (actualizarCarta)="onActualizarCarta($event)"></app-acciones>
 </div>

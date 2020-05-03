@@ -3,5 +3,11 @@ export interface Carta {
   palabraSecreta: string;
   palabraProhibida: string;
   palabraTipo: string;
-  estado: boolean;
+  estado: EstadoCarta;
+}
+export enum EstadoCarta {
+MAZO = "enMazo",
+DESCARTE = "enDescarte",
+JUGADOR = "enJugador"
+
 }
