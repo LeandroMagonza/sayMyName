@@ -27,6 +27,9 @@ export class MazoService {
   get mazoEnJuego() {
     return this.mazo.filter(carta=>carta.estado == EstadoCarta.MAZO);
   }
+  get mazoEnJuegoYDescarte() {
+    return this.mazo.filter(carta=>carta.estado == EstadoCarta.MAZO || carta.estado == EstadoCarta.DESCARTE);
+  }
   get proximaCarta()
   {
     return this.mazoEnJuego[0];
