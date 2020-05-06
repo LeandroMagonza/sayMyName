@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MazoService } from '../mazo.service';
-import { Carta } from '../models/carta';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +7,9 @@ import { Carta } from '../models/carta';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  mazo: Carta[];
+  @Input() cantMazoCompleto:number;
+  @Input() cantMazoRestante:number;
   constructor(private mazoService: MazoService ) {
-    this.mazo = mazoService.getMazo();
   }
 
   ngOnInit(): void {

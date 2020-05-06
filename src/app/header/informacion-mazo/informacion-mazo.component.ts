@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MazoService } from 'src/app/mazo.service';
 
 @Component({
   selector: 'app-informacion-mazo',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformacionMazoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mazoService: MazoService) { }
+  @Input() cantMazoRestante;
+  @Input() cantMazoCompleto;
 
   ngOnInit(): void {
   }
