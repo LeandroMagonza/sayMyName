@@ -5,6 +5,7 @@ export interface Equipo {
   nombreEquipo: string;
   colorEquipo: string;
   puntajeEquipo: number;
+  turnosEquipo: number;
   jugadores: Jugador[];
 
 }
