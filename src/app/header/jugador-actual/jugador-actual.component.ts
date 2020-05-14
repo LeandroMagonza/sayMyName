@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { EquipoService } from 'src/app/equipo.service';
+
 
 @Component({
   selector: 'app-jugador-actual',
@@ -6,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jugador-actual.component.css']
 })
 export class JugadorActualComponent implements OnInit {
-
-  constructor() { }
+  @Input() datosJugadorActual: {nombreJugador:string,nombreEquipo:string,colorEquipo:string};
+  constructor(private equipoService: EquipoService) { }
 
   ngOnInit(): void {
   }

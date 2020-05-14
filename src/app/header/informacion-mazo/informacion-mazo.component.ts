@@ -11,7 +11,7 @@ export class InformacionMazoComponent implements OnInit {
   constructor(private mazoService: MazoService) { }
   @Input() cantMazoRestante;
   @Input() cantMazoCompleto;
-
+  
   ngOnInit(): void {
   }
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Equipo } from './models/equipo';
+import { shuffle,take } from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +8,15 @@ import { Equipo } from './models/equipo';
 export class EquipoService {
 
   equipos: Equipo[];
-  equipoActual: number = 0;
-  jugadorActual: number = 0;
-  constructor() { }
+  equipoActualID: number;
+  equipoActualNombre: string;
+  jugadorActualID: number;
+  jugadorActualNombre: string;
+  minCantTurnosEquipo: number;
+  constructor() {
+    this.createEquipos();
+    this.getNextEquipo();
+   }
 
   createEquipos()
   {
@@ -58,10 +65,12 @@ export class EquipoService {
   {
 
     this.equipos.forEach(equipo =>{ 
-      if( typeof minCantTurnosEquipo == 'undefined'  || equipo.turnosEquipo<minCantTurnosEquipo)
+      if( typeof this.minCantTurnosEquipo == 'undefined'  || equipo.turnosEquipo<this.minCantTurnosEquipo)
       {
-        minCantTurnosEquipo == equipo.turnosEquipo;
+        this.minCantTurnosEquipo = equipo.turnosEquipo;
       }
     });
+    this.equipoActualID = shuffle(this.equipos.filter(equipo=>equipo.turnosEquipo == this.minCantTurnosEquipo))[0].id;
+    console.log(this.equipoActualID);
   }
 }
