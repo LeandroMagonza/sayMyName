@@ -9,7 +9,6 @@ import { MazoService } from '../mazo.service';
 export class HeaderComponent implements OnInit {
   @Input() cantMazoCompleto:number;
   @Input() cantMazoRestante:number;
-  @Input() datosJugadorActual: {nombreJugador:string,nombreEquipo:string,colorEquipo:string};
   constructor(private mazoService: MazoService ) {
   }
 

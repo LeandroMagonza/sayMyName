@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Equipo } from './models/equipo';
 import { shuffle,take } from 'lodash';
+import { Jugador } from './models/jugador';
 
 @Injectable({
   providedIn: 'root'
@@ -8,69 +9,89 @@ import { shuffle,take } from 'lodash';
 export class EquipoService {
 
   equipos: Equipo[];
-  equipoActualID: number;
-  equipoActualNombre: string;
-  jugadorActualID: number;
-  jugadorActualNombre: string;
+  equipoActual: Equipo;
+  jugadorActual: Jugador;
   minCantTurnosEquipo: number;
+  minCantTurnosJugador: number;
   constructor() {
     this.createEquipos();
-    this.getNextEquipo();
+    this.setNextEquipo();
+    this.setNextJugador();
    }
 
   createEquipos()
   {
     this.equipos = [{
       id: 2,
-      nombreEquipo: "EquipoAzul",
-      colorEquipo: "#0000FF",
-      puntajeEquipo: 0,
-      turnosEquipo: 0,
+      nombre: "EquipoAzul",
+      color: "#0000FF",
+      puntaje: 0,
+      turnos: 0,
       jugadores: [
         {
           id: 3,
-          nombreJugador: "Benicio",
-          turnosJugador: 0
+          nombre: "Benicio",
+          turnos: 0
         },
         {
           id: 4,
-          nombreJugador: "Romualdo",
-          turnosJugador: 0,
+          nombre: "Romualdo",
+          turnos: 0,
         }
       ]
     },
     {
       id: 1,
-      nombreEquipo: "EquipoRojo",
-      colorEquipo: "#FF0000",
-      puntajeEquipo: 0,
-      turnosEquipo: 0,
+      nombre: "EquipoRojo",
+      color: "#FF0000",
+      puntaje: 0,
+      turnos: 0,
       jugadores: [
         {
           id: 1,
-          nombreJugador: "Carlos",
-          turnosJugador: 0,
+          nombre: "Carlos",
+          turnos: 0,
         },
         {
           id: 2,
-          nombreJugador: "Roberto",
-          turnosJugador: 0,
+          nombre: "Roberto",
+          turnos: 0,
         }
       ]
     }
   ]
   }
 
-  getNextEquipo()
+  setNextEquipo()
   {
-
-    this.equipos.forEach(equipo =>{ 
-      if( typeof this.minCantTurnosEquipo == 'undefined'  || equipo.turnosEquipo<this.minCantTurnosEquipo)
+    this.equipos.forEach(equipo =>{
+      if( typeof this.minCantTurnosEquipo == 'undefined'  || equipo.turnos<this.minCantTurnosEquipo)
       {
-        this.minCantTurnosEquipo = equipo.turnosEquipo;
+        this.minCantTurnosEquipo = equipo.turnos;
       }
     });
-    this.equipoActualID = shuffle(this.equipos.filter(equipo=>equipo.turnosEquipo == this.minCantTurnosEquipo))[0].id;
-    console.log(this.equipoActualID);
+    this.equipoActual = shuffle(this.equipos.filter(equipo=>equipo.turnos == this.minCantTurnosEquipo))[0];
+  }
+
+  setNextJugador()
+  {
+    this.equipoActual.jugadores.forEach(jugador =>{
+      if( typeof this.minCantTurnosJugador == 'undefined'  || jugador.turnos<this.minCantTurnosJugador)
+      {
+        this.minCantTurnosJugador = jugador.turnos;
+      }
+    });
+    this.jugadorActual = shuffle(this.equipoActual.jugadores.filter(jugador=>jugador.turnos == this.minCantTurnosJugador))[0];
+  }
+
+
+  get equipoActualNombre()
+  {
+    return this.equipoActual.nombre;
+  }
+
+  get jugadorActualNombre()
+  {
+    return this.jugadorActual.nombre;
   }
 }

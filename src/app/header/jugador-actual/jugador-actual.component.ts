@@ -8,10 +8,16 @@ import { EquipoService } from 'src/app/equipo.service';
   styleUrls: ['./jugador-actual.component.css']
 })
 export class JugadorActualComponent implements OnInit {
-  @Input() datosJugadorActual: {nombreJugador:string,nombreEquipo:string,colorEquipo:string};
-  constructor(private equipoService: EquipoService) { }
 
+  constructor(private equipoService: EquipoService) { }
   ngOnInit(): void {
   }
+
+    public get equipoActualNombre(): string {
+      return this.equipoService.equipoActualNombre;
+    }
+    public get jugadorActualNombre(): string {
+      return this.equipoService.jugadorActualNombre;
+    }
 
 }
