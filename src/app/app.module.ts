@@ -12,6 +12,12 @@ import { PuntajeEquipoComponent } from './juego/header/puntaje-equipo/puntaje-eq
 import { MazoService } from './mazo.service';
 import { EquipoService } from './equipo.service';
 import { JuegoComponent } from './juego/juego.component';
+import { Routes, RouterModule } from '@angular/router';
+
+
+const appRoutes: Routes = [
+  {path:'juego', component: JuegoComponent}
+];
 
 @NgModule({
   declarations: [
@@ -26,7 +32,8 @@ import { JuegoComponent } from './juego/juego.component';
     JuegoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
     bootstrap: [AppComponent]
 })
