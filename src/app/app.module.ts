@@ -10,6 +10,7 @@ import { CartaActualComponent } from './carta-actual/carta-actual.component';
 import { AccionesComponent } from './acciones/acciones.component';
 import { PuntajeEquipoComponent } from './header/puntaje-equipo/puntaje-equipo.component';
 import { MazoService } from './mazo.service';
+import { EquipoService } from './equipo.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,6 @@ import { MazoService } from './mazo.service';
   imports: [
     BrowserModule
   ],
-  providers: [MazoService],
-  bootstrap: [AppComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

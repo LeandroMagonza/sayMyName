@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MazoService } from './mazo.service';
 import { Carta } from './models/carta';
+import { EquipoService } from './equipo.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,14 @@ export class AppComponent {
   cartaActual:Carta;
   cantMazoCompleto: number;
   cantMazoRestante: number;
-  constructor(private mazoService: MazoService) { }
+  datosJugadorActual: {nombreJugador:string,nombreEquipo:string,colorEquipo:string};
+  constructor(private mazoService: MazoService,private equipoService: EquipoService) { }
 
   ngOnInit(): void {
     this.cartaActual = this.mazoService.proximaCarta;
     this.cantMazoRestante = this.mazoService.mazoEnJuego.length;
     this.cantMazoCompleto = this.mazoService.mazoEnJuegoYDescarte.length;
+    // this.datosJugadorActual = this.equipoService.nombreEquipo;
 
   }
 
