@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MazoService } from "../mazo.service";
-import { Carta } from '../models/carta';
+import { MazoService } from "../../mazo.service";
+import { Carta } from '../../models/carta';
 
 @Component({
   selector: 'app-carta-actual',

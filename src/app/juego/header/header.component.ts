@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MazoService } from '../mazo.service';
+import { MazoService } from 'src/app/mazo.service';
+
 
 @Component({
   selector: 'app-header',
