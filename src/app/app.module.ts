@@ -26,7 +26,6 @@ import { EquipoService } from './equipo.service';
   imports: [
     BrowserModule
   ],
-  providers: [MazoService,EquipoService],
-  bootstrap: [AppComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
