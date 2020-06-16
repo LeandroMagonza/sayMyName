@@ -9,15 +9,8 @@ import { EquipoService } from 'src/app/equipo.service';
 })
 export class JugadorActualComponent implements OnInit {
 
-  constructor(private equipoService: EquipoService) { }
+  constructor(public equipoService: EquipoService) { }
   ngOnInit(): void {
   }
-
-    public get equipoActualNombre(): string {
-      return this.equipoService.equipoActualNombre;
-    }
-    public get jugadorActualNombre(): string {
-      return this.equipoService.jugadorActualNombre;
-    }
 
 }

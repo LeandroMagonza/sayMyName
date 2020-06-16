@@ -12,6 +12,15 @@ import { PuntajeEquipoComponent } from './juego/header/puntaje-equipo/puntaje-eq
 import { MazoService } from './mazo.service';
 import { EquipoService } from './equipo.service';
 import { JuegoComponent } from './juego/juego.component';
+import { Routes, RouterModule } from '@angular/router';
+import { ProximoTurnoComponent } from './proximo-turno/proximo-turno.component';
+
+const appRoutes: Routes = [
+  {path:'',component: JuegoComponent},
+  {path:'juego',component: JuegoComponent},
+  {path:'proximo-turno',component: ProximoTurnoComponent},
+
+];
 
 @NgModule({
   declarations: [
@@ -23,10 +32,12 @@ import { JuegoComponent } from './juego/juego.component';
     CartaActualComponent,
     AccionesComponent,
     PuntajeEquipoComponent,
-    JuegoComponent
+    JuegoComponent,
+    ProximoTurnoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
     bootstrap: [AppComponent]
 })

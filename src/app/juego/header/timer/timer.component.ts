@@ -1,4 +1,5 @@
 import { Component, OnInit,EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,10 +12,16 @@ export class TimerComponent implements OnInit {
   timerInterval;
   timer:number = 0;
   maxTimer: number=5;
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.onStartTurn();
+  }
+
+  ngOnDestroy() {
+    if (this.timerInterval) {
+      clearInterval(this.timerInterval);
+    }
   }
 
   onStartTurn()
@@ -23,8 +30,10 @@ export class TimerComponent implements OnInit {
     {
       if (this.timer==this.maxTimer)
       {
-        this.timer =0;
-        this.timerUp.emit();
+        // this.timer =0;
+        // this.timerUp.emit();
+        this.router.navigateByUrl('proximo-turno');
+
       }
       else
       {

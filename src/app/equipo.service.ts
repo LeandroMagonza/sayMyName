@@ -15,8 +15,7 @@ export class EquipoService {
   minCantTurnosJugador: number;
   constructor() {
     this.createEquipos();
-    this.setNextEquipo();
-    this.setNextJugador();
+    // this.setNextEquipo();
    }
 
   createEquipos()
@@ -71,10 +70,16 @@ export class EquipoService {
       }
     });
     this.equipoActual = shuffle(this.equipos.filter(equipo=>equipo.turnos == this.minCantTurnosEquipo))[0];
+    this.minCantTurnosEquipo = undefined;
+    this.equipoActual.turnos++,
+    this.setNextJugador();
+    // **bitch
+
   }
 
   setNextJugador()
   {
+    // console.log(this.equipoActual.jugadores);
     this.equipoActual.jugadores.forEach(jugador =>{
       if( typeof this.minCantTurnosJugador == 'undefined'  || jugador.turnos<this.minCantTurnosJugador)
       {
@@ -82,6 +87,8 @@ export class EquipoService {
       }
     });
     this.jugadorActual = shuffle(this.equipoActual.jugadores.filter(jugador=>jugador.turnos == this.minCantTurnosJugador))[0];
+    this.minCantTurnosJugador = undefined;
+    this.jugadorActual.turnos++;
   }
 
 
@@ -89,9 +96,18 @@ export class EquipoService {
   {
     return this.equipoActual.nombre;
   }
+  get equipoActualTurnos()
+  {
+    return this.equipoActual.turnos;
+  }
 
   get jugadorActualNombre()
   {
     return this.jugadorActual.nombre;
+  }
+  get jugadorActualTurnos()
+  {
+    // console.log(this.jugadorActual);
+    return this.jugadorActual.turnos;
   }
 }

@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { MazoService } from './mazo.service';
-import { Carta } from './models/carta';
-import { EquipoService } from './equipo.service';
+import { JuegoComponent } from './juego/juego.component';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +7,6 @@ import { EquipoService } from './equipo.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
 }
 
